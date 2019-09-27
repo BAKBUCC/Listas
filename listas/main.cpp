@@ -45,16 +45,17 @@ void invertir_Iterativo(int arr[], int cant)
     print(arr, cantidad);
 }
 
-int invertir_Recursiva(int arr[], int cant, int i=0)
+void invertir_Recursiva(int arr[], int cant, int i=0)
 {
+    if (cant<=i)
+    {
+        return;
+    }
     int guardado=arr[i];
     arr[i]=arr[cant-1];
     arr[cant-1]=guardado;
-    if (cant<=i)
-    {
-        return 0;
-    }
-    return invertir_Recursiva(arr, --cant, ++i);
+
+    invertir_Recursiva(arr, cant-1, i+1);
 }
 
 void ordenamientoBurbuja(int arr[], int cant)
